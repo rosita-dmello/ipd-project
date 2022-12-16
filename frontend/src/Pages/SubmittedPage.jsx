@@ -24,15 +24,17 @@ export const Result = ({ score, surveyScore }) => {
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('https://localhost:8000/result', {
+        const response = await fetch('http://localhost:8000/result', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
         });
+        
         const resData = await response.json();
-        setRes(resData.response.body);
+        console.log(resData);
+        setRes(resData);
         setLoading(false);
         console.log(resData.response.body);
       } catch (err) {

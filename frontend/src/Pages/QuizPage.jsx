@@ -86,13 +86,13 @@ export const QuizPage = ({ score, setScore }) => {
         <div
           className='flex justify-center'
           onClick={() => {
+            setScore([
+              ...score,
+              Data[score.length + 1].options[res] === Data[score.length + 1].answer ? 1 : 0
+            ]);
             if (score.length === 9) {
               navigate('/survey');
             } else {
-              setScore([
-                ...score,
-                Data[score.length + 1].options[res] === Data[score.length + 1].answer ? 1 : 0
-              ]);
               setRes(-1);
             }
           }}>
