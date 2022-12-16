@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Button } from '../Components/Button';
 import { NavBar } from '../Components/Navbar';
 import { OptionBtn } from '../Components/OptionBtn';
+import head from '../Images/head.jpg';
 
 export const Home = () => {
   return (
@@ -27,7 +28,13 @@ export const Home = () => {
             <Button content="Detect Now" />
           </div> */}
         </div>
-        <div className=""></div>
+        <div className="">
+          <img
+            src={head}
+            alt="home-page-image"
+            className="bg-blue-200 h-96 w-96 mx-auto"
+          />
+        </div>
       </div>
     </>
   );
