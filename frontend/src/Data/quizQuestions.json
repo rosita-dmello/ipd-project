@@ -38,7 +38,7 @@
   "7": {
     "question": "What do you hear?",
     "options": ["AB", "ED"],
-    "voice": "What do you hear?   ED",
+    "voice": "What do you hear?  E D",
     "answer": "ED"
   },
   "8": {
@@ -59,7 +59,7 @@
   "10": {
     "question": "What do you hear?",
     "options": ["cake", "lake", "take", "fake"],
-    "voice": "What do you hear?   cake",
+    "voice": "What do you hear?  cake",
     "answer": "cake"
   }
 }
