@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../Components/Button';
 import { NavBar } from '../Components/Navbar';
 import { OptionBtn } from '../Components/OptionBtn';
@@ -17,12 +18,14 @@ export const Home = () => {
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
             ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           </div>
-          {/* <button className="my-10 px-3 py-2 border font-poppins border-neutral-500 md:text-xl rounded hover:bg-neutral-100 hover:shadow hover:border-neutral-600">
-            Getting Started
-          </button> */}
-          <div className="my-8">
+          <Link to="getting-started">
+            <button className="my-10 px-3 py-2 border font-poppins border-neutral-500 md:text-xl rounded hover:bg-neutral-100 hover:shadow hover:border-neutral-600">
+              Getting Started
+            </button>
+          </Link>
+          {/* <div className="my-8">
             <Button content="Detect Now" />
-          </div>
+          </div> */}
         </div>
         <div className=""></div>
       </div>

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import { Link, Navigate } from 'react-router-dom';
 
 export const NavBar = () => {
+  // const navigate = Navigate();
   const [navbar, setNavbar] = useState(false);
 
   return (
@@ -8,12 +10,12 @@ export const NavBar = () => {
       <div className="justify-between px-4 mx-auto lg:max-w-7xl md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center justify-between py-3 md:py-3 md:block">
-            <a href="javascript:void(0)">
+            <Link to="/">
               <div className=" text-black text-center leading-tight">
                 <div className="text-2xl font-bold">Dyslexia</div>
                 <div className="text-lg font-medium">Detection</div>
               </div>
-            </a>
+            </Link>
             <div className="md:hidden">
               <button
                 className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
@@ -60,7 +62,7 @@ export const NavBar = () => {
           >
             <ul className="items-center justify-center space-y-8 md:flex md:space-x-12 md:space-y-0 md:tracking-wider">
               <li className="">
-                <a href="javascript:void(0)">Take a test</a>
+                <Link to="/getting-started">Take a test</Link>
               </li>
               <li className="">
                 <a href="javascript:void(0)">Reports</a>
