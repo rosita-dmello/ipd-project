@@ -91,7 +91,8 @@ export const QuizPage = ({ score, setScore }) => {
               Data[score.length + 1].options[res] === Data[score.length + 1].answer ? 1 : 0
             ]);
             if (score.length === 9) {
-              navigate('/survey');
+              localStorage.setItem('quiz', 'true');
+              navigate('/getting-started');
             } else {
               setRes(-1);
             }
