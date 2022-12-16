@@ -68,7 +68,7 @@ export const NavBar = () => {
                 <a href="javascript:void(0)">Reports</a>
               </li>
               <li className="">
-                <a href="javascript:void(0)">Find a center</a>
+                <Link to="/specialist">Find a center</Link>
               </li>
               <li className="">
                 <a href="javascript:void(0)">Contact US</a>
