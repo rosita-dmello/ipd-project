@@ -7,13 +7,13 @@ import speaker from '../Images/speaker.jpg';
 import { useSpeechSynthesis } from 'react-speech-kit';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
-import Data from '../Data/quizQuestions.json';
+import Data from '../Data/surveyQuestions.json';
 import { Navigate, useNavigate } from 'react-router-dom';
 
-export const QuizPage = ({ score, setScore }) => {
+export const Survey = ({ surveyScore, setSurveyScore }) => {
   const { speak } = useSpeechSynthesis();
   const [res, setRes] = useState(-1);
-  console.log('images' in Object.keys(Data[score.length + 1]));
+  console.log('images' in Object.keys(Data[surveyScore.length + 1]));
   const navigate = useNavigate();
   return (
     <>
@@ -30,18 +30,18 @@ export const QuizPage = ({ score, setScore }) => {
                 onClick={() =>
                   speak({
                     text:
-                      'voice' in Data[score.length + 1]
-                        ? Data[score.length + 1].voice
-                        : Data[score.length + 1].question
+                      'voice' in Data[surveyScore.length + 1]
+                        ? Data[surveyScore.length + 1].voice
+                        : Data[surveyScore.length + 1].question
                   })
                 }
               />
-              {Data[score.length + 1].question}
+              {Data[surveyScore.length + 1].question}
             </div>
             <div className='flex justify-center items-center mt-5'>
               {/* <div className='border border-qBor rounded py-1 px-2 text-lg'>“B”</div> */}
-              {'images' in Data[score.length + 1]
-                ? Data[score.length + 1].images.map((img, index) => {
+              {'images' in Data[surveyScore.length + 1]
+                ? Data[surveyScore.length + 1].images.map((img, index) => {
                     return (
                       <img
                         src={require(`../Images/Quiz1/${img}`)}
@@ -53,19 +53,9 @@ export const QuizPage = ({ score, setScore }) => {
                 : null}
             </div>
           </div>
-          <div className='ml-auto'>
-            <CountdownCircleTimer
-              isPlaying
-              duration={120}
-              colors={[' #37C9EF']}
-              size={60}
-              strokeWidth={5}>
-              {({ remainingTime }) => remainingTime}
-            </CountdownCircleTimer>
-          </div>
         </div>
         <div className='flex my-14 mx-36 justify-center'>
-          {Data[score.length + 1].options.map((opt, index) => {
+          {Data[surveyScore.length + 1].options.map((opt, index) => {
             return (
               <div key={index} className='mr-20'>
                 <button
@@ -86,13 +76,10 @@ export const QuizPage = ({ score, setScore }) => {
         <div
           className='flex justify-center'
           onClick={() => {
-            if (score.length === 9) {
-              navigate('/survey');
+            if (surveyScore.length === 19) {
+              navigate('/result');
             } else {
-              setScore([
-                ...score,
-                Data[score.length + 1].options[res] === Data[score.length + 1].answer ? 1 : 0
-              ]);
+              setSurveyScore([...surveyScore, Data[surveyScore.length + 1].score[res]]);
               setRes(-1);
             }
           }}>
