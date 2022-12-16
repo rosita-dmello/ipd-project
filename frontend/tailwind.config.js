@@ -12,10 +12,10 @@ module.exports = {
         optBg: '#F7F7F7',
         bor: '#D6D6D6',
         qBor: '#D2D2D2',
+        specialBtn: '#E9E6E6',
+        special: '#565656',
       },
     },
   },
-  plugins: [
-    require('tw-elements/dist/plugin')
-  ]
+  plugins: [require('tw-elements/dist/plugin')],
 };
