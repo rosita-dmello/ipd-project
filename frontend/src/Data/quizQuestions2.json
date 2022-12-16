@@ -33,7 +33,7 @@
     "question": "What is the smaller version of this letter?",
     "options": ["t", "f"],
     "images": ["6.png"],
-    "answer": "b"
+    "answer": "f"
   },
   "7": {
     "question": "What do you hear?",
