@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from '../Components/Button';
 import { NavBar } from '../Components/Navbar';
 import { OptionBtn } from '../Components/OptionBtn';
@@ -9,6 +9,7 @@ import { CountdownCircleTimer } from 'react-countdown-circle-timer';
 
 export const QuizPage = () => {
   const { speak } = useSpeechSynthesis();
+  const [res, setRes] = useState(-1);
   const dummy = ['a', 'b', 'c', 'd'];
   return (
     <>
@@ -32,13 +33,13 @@ export const QuizPage = () => {
               </div>
             </div>
           </div>
-          <div className="flex-end">
+          <div className="ml-auto">
             <CountdownCircleTimer
               isPlaying
               duration={120}
-              colors={['#004777']}
-              size={80}
-              strokeWidth={6}
+              colors={[' #37C9EF']}
+              size={60}
+              strokeWidth={5}
             >
               {({ remainingTime }) => remainingTime}
             </CountdownCircleTimer>
@@ -48,7 +49,18 @@ export const QuizPage = () => {
           {dummy.map((opt, index) => {
             return (
               <div key={index} className="mr-20">
-                <OptionBtn option={opt} />
+                <button
+                  className={`${
+                    res == index ? 'bg-blue-200' : 'bg-optBg'
+                  } border-bor border-b-2 rounded-lg text-label font-poppins 
+                  ${opt.length < 5 ? 'px-20' : 'px-5'}  
+                  py-3 hover:shadow-lg`}
+                  onClick={() => {
+                    setRes(index);
+                  }}
+                >
+                  {opt}
+                </button>
               </div>
             );
           })}
