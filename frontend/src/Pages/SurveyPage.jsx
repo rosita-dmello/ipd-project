@@ -76,7 +76,8 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
         <div
           className='flex justify-center'
           onClick={() => {
-            setSurveyScore([...surveyScore, Data[surveyScore.length + 1].score[res]]);
+            if (res === -1) setSurveyScore([...surveyScore, 0]);
+            else setSurveyScore([...surveyScore, Data[surveyScore.length + 1].score[res]]);
             if (surveyScore.length === 19) {
               localStorage.setItem('quiz', 'false');
               navigate('/result');
