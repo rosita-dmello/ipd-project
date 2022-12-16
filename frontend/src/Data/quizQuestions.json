@@ -2,49 +2,49 @@
   "1": {
     "question": "Check whether these two alphabets  are the same or not.",
     "options": ["Yes", "No"],
-    "images": ["Images/Quiz1/1.1.png", "Images/Quiz1/1.2.png"],
+    "images": ["1.1.png", "1.2.png"],
     "answer": "Yes"
   },
   "2": {
     "question": "Guess the fruit in the picture.",
     "options": ["Orange", "Banana", "Grapes", "Mango"],
-    "images": ["Images/Quiz1/2.png,"],
+    "images": ["2.png"],
     "answer": "Grapes"
   },
   "3": {
     "question": "Check whether these two alphabets are the same or not.",
     "options": ["Yes", "No"],
-    "images": ["Images/Quiz1/3.1.png", "Images/Quiz1/3.2.png"],
+    "images": ["3.1.png", "3.2.png"],
     "answer": "No"
   },
   "4": {
     "question": "Which letter is G?",
     "options": ["The First Letter", "The Second Letter"],
-    "images": ["Images/Quiz1/4.1png", "Images/Quiz1/4.2.png"],
+    "images": ["4.1.png", "4.2.png"],
     "answer": "The First Letter"
   },
   "5": {
     "question": "Which letter does this animal’s name start with?",
     "options": ["F", "C", "A", "T"],
-    "images": ["Images/Quiz1/5.png"],
+    "images": ["5.png"],
     "answer": "C"
   },
   "6": {
     "question": "What is the smaller version of this letter?",
     "options": ["d", "b"],
-    "images": ["Images/Quiz1/6.png"],
+    "images": ["6.png"],
     "answer": "b"
   },
   "7": {
     "question": "What do you hear?",
     "options": ["AB", "ED"],
-    "voice": "Audio/Quiz1/7.mpeg",
+    "voice": "What do you hear?   ED",
     "answer": "ED"
   },
   "8": {
     "question": "What do you see in the picture?",
     "options": ["GOD", "DOG"],
-    "images": ["Images/Quiz1/8.png"],
+    "images": ["8.png"],
     "answer": "DOG"
   },
   "9": {
@@ -53,13 +53,13 @@
       "First one is right and next one is left",
       "First one is left and next one is right"
     ],
-    "images": ["Images/Quiz1/9.png"],
+    "images": ["9.png"],
     "answer": "First one is left and next one is right"
   },
   "10": {
     "question": "What do you hear?",
     "options": ["cake", "lake", "take", "fake"],
-    "voice": "Audio/Quiz1/10.mpeg",
+    "voice": "What do you hear?   cake",
     "answer": "cake"
   }
 }
