@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { NavBar } from '../Components/Navbar';
 import { Loader } from '../Components/Loader';
 
-export const Result = ({ score, surveyScore }) => {
+export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
   const [res, setRes] = useState('Res');
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -32,7 +32,8 @@ export const Result = ({ score, surveyScore }) => {
           },
           body: JSON.stringify(data)
         });
-        
+        setScore([]);
+        setSurveyScore([]);
         const resData = await response.json();
         console.log(resData);
         setRes(resData);
