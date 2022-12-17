@@ -15,12 +15,12 @@
     "score": [0, 2, 4]
   },
   "4": {
-    "question": "Does your child struggle to connect the concept of numbers to real-world items? When you ask him how many cookies are left, for example, does he seem confused by the question or answer incorrectly?\")",
+    "question": "Does your child struggle to connect the concept of numbers to real-world items? When you ask him how many cookies are left, for example, does he seem confused by the question or answer incorrectly?",
     "options": ["Yes-frequently", "Sometimes", "No-never"],
     "score": [0, 2, 4]
   },
   "5": {
-    "question": "Does your child not seem to understand the difference between adding and subtracting? Does she confuse the  +  and  –  symbols when completing maths problems?\")",
+    "question": "Does your child not seem to understand the difference between adding and subtracting? Does she confuse the  +  and  –  symbols when completing maths problems?",
     "options": ["Yes-frequently", "Sometimes", "No-never"],
     "score": [0, 2, 4]
   },

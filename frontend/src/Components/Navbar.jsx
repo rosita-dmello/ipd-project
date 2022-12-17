@@ -12,8 +12,8 @@ export const NavBar = () => {
           <div className="flex items-center justify-between py-3 md:py-3 md:block">
             <Link to="/">
               <div className=" text-black text-center leading-tight">
-                <div className="text-2xl font-bold">Dyslexia</div>
-                <div className="text-lg font-medium">Detection</div>
+                <div className="text-2xl font-bold">Dsylextify</div>
+                <div className="text-lg font-medium">Dyslexia Detection</div>
               </div>
             </Link>
             <div className="md:hidden">

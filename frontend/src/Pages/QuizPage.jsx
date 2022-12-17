@@ -56,7 +56,7 @@ export const QuizPage = ({ score, setScore }) => {
           <div className='ml-auto'>
             <CountdownCircleTimer
               isPlaying
-              duration={120}
+              duration={300}
               colors={[' #37C9EF']}
               size={60}
               strokeWidth={5}>

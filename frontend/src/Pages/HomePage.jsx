@@ -12,12 +12,10 @@ export const Home = () => {
       <div className="grid sm:grid-cols-2 pt-20 md:pt-24">
         <div className="px-5 md:pl-28 ">
           <div className="font-semibold font-poppins text-lg md:text-2xl lg:text-5xl md:leading-loose">
-            Lorem ipsum dolor sit amet, consectetur adip
+            Predict Risk of Dyslexia in your Child
           </div>
           <div className="text-base mt-4 md:mt-8 md:pr-24 md:leading-relaxed">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            Quiz for Children and Survey for Parents combined generate a prediction if they are at a risk for Dyslexia.
           </div>
           <Link to="getting-started">
             <button className="my-10 px-3 py-2 border font-poppins border-neutral-500 md:text-xl rounded hover:bg-neutral-100 hover:shadow hover:border-neutral-600">
