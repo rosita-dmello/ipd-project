@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavBar } from '../Components/Navbar';
 import { Loader } from '../Components/Loader';
+import { SpecialistPage } from './SpecialistPage';
 
 export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
   const [res, setRes] = useState('Res');
@@ -21,6 +22,7 @@ export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
       audio,
       survey
     };
+    console.log(data)
     const fetchData = async () => {
       try {
         setLoading(true);
@@ -49,13 +51,14 @@ export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
       <NavBar />
       <Loader show={loading} />
       {loading ? null : (
-        <div className='flex justify-center items-center'>
+        <div className='mt-5 flex justify-center items-center'>
           <div className='flex flex-col justify-center items-center'>
             <div className='font-poppins font-bold text-4xl'>Your Result</div>
             <div className='text-xl'>{res}</div>
           </div>
         </div>
       )}
+      <SpecialistPage />
     </>
   );
 };

@@ -18,9 +18,9 @@ export default function App() {
       <Route path='/quiz' element={<QuizPage score={score} setScore={setScore} />} />
       <Route
         path='/survey'
-        element={<Survey surveyScore={surveyScore} setSurveyScore={setSurveyScore} />}
+        element={<Survey surveyScore={surveyScore}  setSurveyScore={setSurveyScore} />}
       />
-      <Route path='/result' element={<Result score={score} surveyScore={surveyScore} />} />
+      <Route path='/result' element={<Result score={score} setScore={setScore} surveyScore={surveyScore} setSurveyScore={setSurveyScore}/>} />
       <Route path="/specialist" element={<SpecialistPage />} />
     </Routes>
   );
