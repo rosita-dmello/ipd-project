@@ -6,6 +6,9 @@ import { useNavigate } from 'react-router-dom';
 import { HiLockClosed, HiLockOpen } from 'react-icons/hi2';
 import { NavBar } from '../Components/Navbar';
 
+// Import an svg
+import { ReactComponent as LoginSVG } from '../Images/login.svg';
+
 export const Login = () => {
   const navigate = useNavigate();
   const [lock, setLock] = useState(true);
@@ -37,7 +40,9 @@ export const Login = () => {
     <>
       <NavBar />
       <div className='grid grid-cols-1 md:grid-cols-2'>
-        <div className='flex justify-center items-center'>{/* Vector image here */}</div>
+        <div className='flex justify-center items-center'>
+          <LoginSVG className='max-h-[60vh]' />
+        </div>
         <div className='pt-20 px-10 md:pl-10 lg:pl-16'>
           <div className='text-pup font-poppins text-2xl md:text-4xl tracking-wider '>
             Log <span className='font-bold'>In</span>
