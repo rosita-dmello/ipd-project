@@ -7,7 +7,7 @@ import { IoMdThumbsUp } from 'react-icons/io';
 export const SpecialistPage = () => {
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBar />
       <div className="ml-5 my-10 md:ml-20 text-2xl font-medium font-poppins">
         Recommended Specialists :
       </div>
