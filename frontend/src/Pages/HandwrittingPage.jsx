@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import { Uploader } from 'uploader'; // Installed by "react-uploader".
 import { UploadButton } from 'react-uploader';
 import { NavBar } from '../Components/Navbar';
+import { Button } from '../Components/Button';
+import { useNavigate } from 'react-router-dom';
+import robo from '../Images/robo.jpg';
+import speaker from '../Images/speaker.jpg';
+import { useSpeechSynthesis } from 'react-speech-kit';
 
 const uploader = Uploader({ apiKey: 'free' });
 const uploaderOptions = {
@@ -40,17 +45,56 @@ const MyUploadedFiles = ({ files }) =>
   });
 
 export const HandwrittingPage = () => {
+  const navigate = useNavigate();
+  const { speak } = useSpeechSynthesis();
   const [files, setFiles] = useState([]);
   return (
     <>
       <NavBar />
-      <div className="py-3 px-5 text-white font-semibold text-lg mt-20 bg-btn rounded-md w-max mx-auto">
-        <MyUploadButton setFiles={setFiles} />
+
+      <div className="mt-20 text-center font-bold text-[2.4rem] leading-[1.2] text-title1 tracking-widest">
+        <div className="">Virtual writing assistant</div>
+        <div className="mt-1">to help your child</div>
+      </div>
+
+      <div className="flex justify-center items-center w-[90%]">
+        <img src={robo} alt="robo-image" className="" />
+        <div className="ml-10">
+          <div className="font-poppins font-bold text-2xl">
+            <img
+              src={speaker}
+              alt="speaker-image"
+              className="w-6 h-6 mr-3 cursor-pointer inline-block"
+              onClick={() =>
+                speak({
+                  text: 'Knowledge',
+                })
+              }
+            />
+            <span className="tracking-wide ">
+              Write the word{'  '}
+              <span className="text-blue1 font-bold">'Knowledge'</span>
+            </span>
+          </div>
+        </div>
+        <div className="py-2 px-4 text-white font-semibold text-lg  bg-btn rounded-md  ml-28">
+          <MyUploadButton setFiles={setFiles} />
+        </div>
       </div>
       {files.length && (
         <>
-          <div className="mt-10 w-max mx-auto text-center">
+          <div className="mt- w-max mx-auto text-center">
             <MyUploadedFiles files={files} />
+          </div>
+          <div
+            className="flex justify-center mt-16 mb-20"
+            onClick={() => {
+              localStorage.setItem('quiz', 'false');
+              localStorage.setItem('survey', 'false');
+              navigate('/result');
+            }}
+          >
+            <Button content="Submit" />
           </div>
         </>
       )}
