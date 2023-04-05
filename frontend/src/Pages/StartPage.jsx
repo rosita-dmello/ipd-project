@@ -27,6 +27,9 @@ export const StartPage = () => {
           <Link to="/survey" className="ml-5">
             <Button content="Survey" />
           </Link>
+          <Link to="/handwritten" className="ml-5">
+            <Button content="Handwritten" />
+          </Link>
         </div>
       </div>
     </>

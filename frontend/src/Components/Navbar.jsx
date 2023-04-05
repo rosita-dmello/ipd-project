@@ -70,9 +70,15 @@ export const NavBar = () => {
               <li className="">
                 <Link to="/specialist">Find a center</Link>
               </li>
-              <li className="">
+              {/* <li className="">
                 <a href="javascript:void(0)">Contact US</a>
+              </li> */}
+              <li className="">
+                <a href="/signup">Signup/Login</a>
               </li>
+              {/* <li className="">
+                <a href="/login">Login</a>
+              </li> */}
             </ul>
 
             {/* <div className="mt-3 space-y-2 md:hidden ">
