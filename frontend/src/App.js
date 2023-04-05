@@ -6,6 +6,8 @@ import { Survey } from './Pages/SurveyPage';
 import { useState } from 'react';
 import { Result } from './Pages/SubmittedPage';
 import { SpecialistPage } from './Pages/SpecialistPage';
+import { SignUp } from './Pages/SignupPage';
+import { Login } from './Pages/LoginPage';
 
 export default function App() {
   const [score, setScore] = useState([]);
@@ -13,15 +15,32 @@ export default function App() {
 
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/getting-started' element={<StartPage />} />
-      <Route path='/quiz' element={<QuizPage score={score} setScore={setScore} />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/getting-started" element={<StartPage />} />
       <Route
-        path='/survey'
-        element={<Survey surveyScore={surveyScore}  setSurveyScore={setSurveyScore} />}
+        path="/quiz"
+        element={<QuizPage score={score} setScore={setScore} />}
       />
-      <Route path='/result' element={<Result score={score} setScore={setScore} surveyScore={surveyScore} setSurveyScore={setSurveyScore}/>} />
+      <Route
+        path="/survey"
+        element={
+          <Survey surveyScore={surveyScore} setSurveyScore={setSurveyScore} />
+        }
+      />
+      <Route
+        path="/result"
+        element={
+          <Result
+            score={score}
+            setScore={setScore}
+            surveyScore={surveyScore}
+            setSurveyScore={setSurveyScore}
+          />
+        }
+      />
       <Route path="/specialist" element={<SpecialistPage />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
     </Routes>
   );
 }
