@@ -8,6 +8,7 @@ import { Result } from './Pages/SubmittedPage';
 import { SpecialistPage } from './Pages/SpecialistPage';
 import { SignUp } from './Pages/SignupPage';
 import { Login } from './Pages/LoginPage';
+import { HandwrittingPage } from './Pages/HandwrittingPage';
 
 export default function App() {
   const [score, setScore] = useState([]);
@@ -41,6 +42,7 @@ export default function App() {
       <Route path="/specialist" element={<SpecialistPage />} />
       <Route path="/signup" element={<SignUp />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/handwritten" element={<HandwrittingPage />} />
     </Routes>
   );
 }
