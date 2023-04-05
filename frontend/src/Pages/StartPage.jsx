@@ -6,6 +6,7 @@ import boy from '../Images/boy.jpg';
 
 export const StartPage = () => {
   const [quiz, setQuiz] = useState(localStorage.getItem('quiz'));
+  const [survey, setSurvey] = useState(localStorage.getItem('survey'));
   return (
     <>
       <NavBar />
@@ -25,7 +26,7 @@ export const StartPage = () => {
             <Button content="Quiz" quiz={quiz} />
           </Link>
           <Link to="/survey" className="ml-5">
-            <Button content="Survey" />
+            <Button content="Survey" quiz={survey} />
           </Link>
           <Link to="/handwritten" className="ml-5">
             <Button content="Handwritten" />
