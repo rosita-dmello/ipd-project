@@ -13,17 +13,13 @@ const uploaderOptions = {
   multi: false,
   styles: {
     colors: {
-      primary: '#37C9EF',
-    },
-  },
+      primary: '#37C9EF'
+    }
+  }
 };
 
 const MyUploadButton = ({ setFiles }) => (
-  <UploadButton
-    uploader={uploader}
-    options={uploaderOptions}
-    onComplete={setFiles}
-  >
+  <UploadButton uploader={uploader} options={uploaderOptions} onComplete={setFiles}>
     {({ onClick }) => <button onClick={onClick}>Upload Here</button>}
   </UploadButton>
 );
@@ -36,7 +32,7 @@ const MyUploadedFiles = ({ files }) =>
 
     return (
       <p key={fileUrl}>
-        <img src={fileUrl} className=""></img>
+        <img src={fileUrl} className=''></img>
         {/* <a href={fileUrl} target="_blank">
           {fileUrl}
         </a> */}
@@ -44,57 +40,57 @@ const MyUploadedFiles = ({ files }) =>
     );
   });
 
-export const HandwrittingPage = () => {
+export const HandwrittingPage = ({ files, setFiles }) => {
   const navigate = useNavigate();
   const { speak } = useSpeechSynthesis();
-  const [files, setFiles] = useState([]);
+  console.log(files);
+
   return (
     <>
       <NavBar />
 
-      <div className="mt-20 text-center font-bold text-[2.4rem] leading-[1.2] text-title1 tracking-widest">
-        <div className="">Virtual writing assistant</div>
-        <div className="mt-1">to help your child</div>
+      <div className='mt-20 text-center font-bold text-[2.4rem] leading-[1.2] text-title1 tracking-widest'>
+        <div className=''>Virtual writing assistant</div>
+        <div className='mt-1'>to help your child</div>
       </div>
 
-      <div className="flex justify-center items-center w-[90%]">
-        <img src={robo} alt="robo-image" className="" />
-        <div className="ml-10">
-          <div className="font-poppins font-bold text-2xl">
+      <div className='flex justify-center items-center w-[90%]'>
+        <img src={robo} alt='robo-image' className='' />
+        <div className='ml-10'>
+          <div className='font-poppins font-bold text-2xl'>
             <img
               src={speaker}
-              alt="speaker-image"
-              className="w-6 h-6 mr-3 cursor-pointer inline-block"
+              alt='speaker-image'
+              className='w-6 h-6 mr-3 cursor-pointer inline-block'
               onClick={() =>
                 speak({
-                  text: 'Knowledge',
+                  text: 'Knowledge'
                 })
               }
             />
-            <span className="tracking-wide ">
+            <span className='tracking-wide '>
               Write the word{'  '}
-              <span className="text-blue1 font-bold">'Knowledge'</span>
+              <span className='text-blue1 font-bold'>'Knowledge'</span>
             </span>
           </div>
         </div>
-        <div className="py-2 px-4 text-white font-semibold text-lg  bg-btn rounded-md  ml-28">
+        <div className='py-2 px-4 text-white font-semibold text-lg  bg-btn rounded-md  ml-28'>
           <MyUploadButton setFiles={setFiles} />
         </div>
       </div>
       {files.length && (
         <>
-          <div className="mt- w-max mx-auto text-center">
+          <div className='mt- w-max mx-auto text-center'>
             <MyUploadedFiles files={files} />
           </div>
           <div
-            className="flex justify-center mt-16 mb-20"
+            className='flex justify-center mt-16 mb-20'
             onClick={() => {
               localStorage.setItem('quiz', 'false');
               localStorage.setItem('survey', 'false');
-              navigate('/result');
-            }}
-          >
-            <Button content="Submit" />
+              navigate('/handwriting-result');
+            }}>
+            <Button content='Submit' />
           </div>
         </>
       )}
