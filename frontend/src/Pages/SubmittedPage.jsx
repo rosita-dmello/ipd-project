@@ -58,7 +58,7 @@ export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
           </div>
         </div>
       )}
-      <SpecialistPage result='true' />
+      <SpecialistPage result='true' resultQuiz='' />
     </>
   );
 };

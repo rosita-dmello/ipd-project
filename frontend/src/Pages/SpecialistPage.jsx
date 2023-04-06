@@ -13,7 +13,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 75,
       star: 4,
       experience: 10,
-      category: 0
+      category: 0,
+      index: 0
     },
     {
       name: 'Mr. Rahul',
@@ -22,7 +23,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 82,
       star: 3,
       experience: 12,
-      category: 0
+      category: 0,
+      index: 1
     },
     {
       name: 'Ms. Priya',
@@ -31,7 +33,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 63,
       star: 5,
       experience: 9,
-      category: 0
+      category: 0,
+      index: 2
     },
     {
       name: 'Mr. Karan',
@@ -40,7 +43,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 79,
       star: 4,
       experience: 11,
-      category: 1
+      category: 1,
+      index: 3
     },
     {
       name: 'Ms. Aarti',
@@ -49,7 +53,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 68,
       star: 4,
       experience: 8,
-      category: 1
+      category: 1,
+      index: 4
     },
     {
       name: 'Mr. Rajesh',
@@ -58,7 +63,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 75,
       star: 3,
       experience: 10,
-      category: 1
+      category: 1,
+      index: 5
     },
     {
       name: 'Ms. Shalini',
@@ -67,7 +73,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 82,
       star: 5,
       experience: 12,
-      category: 1
+      category: 1,
+      index: 6
     },
     {
       name: 'Ms. Sarika',
@@ -76,7 +83,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 70,
       star: 4,
       experience: 9,
-      category: 2
+      category: 2,
+      index: 7
     },
     {
       name: 'Mr. Prakash',
@@ -85,7 +93,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 78,
       star: 3,
       experience: 11,
-      category: 2
+      category: 2,
+      index: 8
     },
     {
       name: 'Mr. Amit',
@@ -94,7 +103,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 68,
       star: 3,
       experience: 8,
-      category: 2
+      category: 2,
+      index: 9
     },
     {
       name: 'Ms. Neha',
@@ -103,7 +113,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 80,
       star: 5,
       experience: 10,
-      category: 0
+      category: 0,
+      index: 10
     },
     {
       name: 'Mr. Anil',
@@ -112,7 +123,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 75,
       star: 4,
       experience: 9,
-      category: 0
+      category: 0,
+      index: 11
     },
     {
       name: 'Mr. Manish',
@@ -121,7 +133,8 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 72,
       star: 4,
       experience: 11,
-      category: 1
+      category: 1,
+      index: 12
     },
     {
       name: 'Mr. Deepak',
@@ -130,9 +143,12 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       votes: 63,
       star: 3,
       experience: 8,
-      category: 2
+      category: 2,
+      index: 13
     }
   ];
+
+  const getRandomCategory = Math.floor(Math.round(Math.random() * 100) % 3);
 
   return (
     <>
@@ -141,14 +157,16 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
       <div className='md:mt-2 ml-5 md:ml-20 mb-20 grid grid-cols-4 gap-8'>
         {data
           .filter((item) =>
-            resultHandwritten ? item.category === Math.round(resultHandwritten * 100) % 3 : Math.random() % 3
+            resultHandwritten
+              ? item.category === Math.round(resultHandwritten * 100) % 3
+              : item.category === getRandomCategory
           )
           .map((item, index) => {
             return (
               <div className='bg-white border-qBor border rounded py-3 px-3 shadow w-max'>
                 <div className='w-80 max-w-2xl h-auto m-auto'>
                   <img
-                    src={require(`../Images/specialist${index}.jpg`)}
+                    src={require(`../Images/specialist${item.index}.jpg`)}
                     alt='specialist'
                     className='max-w-[100%] h-auto'
                   />
