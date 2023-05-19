@@ -16,7 +16,7 @@ export default function App() {
   const [score, setScore] = useState([]);
   const [surveyScore, setSurveyScore] = useState([]);
   const [files, setFiles] = useState([]);
-
+  const [newFile, setNewFile] = useState("");
   return (
     <Routes>
       <Route path='/' element={<Home />} />
@@ -43,10 +43,13 @@ export default function App() {
       <Route path='/specialist' element={<SpecialistPage />} />
       <Route path='/signup' element={<SignUp />} />
       <Route path='/login' element={<Login />} />
-      <Route path='/handwritten' element={<HandwrittingPage files={files} setFiles={setFiles} />} />
+      <Route path='/handwritten' element={<HandwrittingPage files={files} setFiles={setFiles}
+            newFile={newFile}
+            setNewFile={setNewFile} />} />
       <Route
         path='/handwriting-result'
-        element={<HandwritingResult files={files} setFiles={setFiles} />}
+        element={<HandwritingResult files={files} setFiles={setFiles} newFile={newFile}
+        setNewFile={setNewFile} />}
       />
       <Route path='*' element={<div>404 Not Found</div>} />
     </Routes>
