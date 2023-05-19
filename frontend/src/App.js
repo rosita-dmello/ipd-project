@@ -28,7 +28,16 @@ export default function App() {
       />
       <Route
         path='/result'
-        element={<ResultPage />}
+        element={
+          <ResultPage
+            score={score}
+            setScore={setScore}
+            surveyScore={surveyScore}
+            setSurveyScore={setSurveyScore}
+            files={files}
+            setFiles={setFiles}
+          />
+        }
         // element={<Result score={score} setScore={setScore} surveyScore={surveyScore} setSurveyScore={setSurveyScore} />}
       />
       <Route path='/specialist' element={<SpecialistPage />} />

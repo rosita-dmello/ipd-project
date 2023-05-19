@@ -154,10 +154,10 @@ export const SpecialistPage = ({ result = 'false', resultQuiz, resultHandwritten
     <>
       {result == 'false' && <NavBar />}
       <div>
-        <div className='ml-5 my-10 md:ml-20 text-2xl font-medium font-poppins'>
+        <div className='ml-1 my-10 md:ml-12 text-2xl font-medium font-poppins'>
           Recommended Specialists :
         </div>
-        <div className='md:mt-2 ml-5 md:ml-20 mb-20 grid grid-cols-2 gap-8'>
+        <div className='md:mt-2 ml-1 md:ml-12 mb-20 grid md:grid-cols-2 gap-8'>
           {data
             .filter((item) =>
               resultHandwritten

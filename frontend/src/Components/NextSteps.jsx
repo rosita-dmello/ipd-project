@@ -132,59 +132,19 @@ const data = {
 };
 
 const NextSteps = ({ category }) => {
+  function getRandomItemsFromArray(array, count) {
+    const shuffledArray = array.sort(() => 0.5 - Math.random());
+    return shuffledArray.slice(0, count);
+  }
   return (
     <div className='max-w-xl mx-auto p-8 bg-white rounded-lg shadow'>
-      <h2 className='text-2xl font-bold mb-4'>Next Steps</h2>
+      <h2 className='text-2xl font-medium mb-4'>Next Steps</h2>
       <ul className='list-disc pl-6'>
-        {data[category].map((item) => (
+        {getRandomItemsFromArray(data[category], 5).map((item) => (
           <li className='mb-2'>
             <span className='font-bold'>{item.title}: </span> {item.description}
           </li>
         ))}
-
-        <li className='mb-2'>
-          <span className='font-bold'>Consult a Professional:</span> It is recommended to consult
-          with a professional, such as a learning specialist, educational psychologist, or dyslexia
-          expert. They can provide a comprehensive assessment and diagnosis based on the quiz
-          results and further evaluation.
-        </li>
-        <li className='mb-2'>
-          <span className='font-bold'>Seek Support from Educational Institutions:</span> Reach out
-          to the appropriate educational institutions, such as schools or universities, and inform
-          them about the quiz results. They may have resources or programs in place to support
-          individuals with dyslexia.
-        </li>
-        <li className='mb-2'>
-          <span className='font-bold'>Explore Accommodations and Assistive Technologies:</span>{' '}
-          Investigate the various accommodations and assistive technologies available to help manage
-          dyslexia. These may include text-to-speech software, speech recognition tools, or
-          specialized reading and writing programs. Consult with professionals to determine the most
-          suitable options.
-        </li>
-        <li className='mb-2'>
-          <span className='font-bold'>Engage in Remedial Interventions:</span> Consider
-          participating in remedial interventions specifically designed for individuals with
-          dyslexia. These interventions can help improve reading, writing, and language skills. Look
-          for programs or therapies recommended by professionals.
-        </li>
-        <li className='mb-2'>
-          <span className='font-bold'>Join Support Groups and Communities:</span> Seek out support
-          groups or online communities where you can connect with others who have dyslexia. Sharing
-          experiences, challenges, and strategies can provide valuable insights and emotional
-          support.
-        </li>
-        <li className='mb-2'>
-          <span className='font-bold'>Advocate for Accommodations:</span> If you are a student,
-          employee, or involved in any educational or professional setting, familiarize yourself
-          with the accommodations available for individuals with dyslexia. Advocate for your rights
-          and ensure that appropriate accommodations are provided to help you succeed.
-        </li>
-        <li className='mb-2'>
-          <span className='font-bold'>Continue Learning and Self-Improvement:</span> Dyslexia is a
-          lifelong condition, but with proper support and strategies, individuals with dyslexia can
-          thrive. Keep learning about dyslexia, stay updated on research and advancements, and
-          explore new techniques or resources that can assist in managing dyslexia effectively.
-        </li>
       </ul>
     </div>
   );
