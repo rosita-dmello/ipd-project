@@ -18,8 +18,15 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
   return (
     <>
       <NavBar />
-      <div className='mt-20'>
-        <div className='flex mx-36 items-center'>
+      <div className='mt-10'>
+        <div className='relative pt-1 '>
+          <div className='overflow-hidden h-2 mb-4 text-xs flex rounded bg-sky-100'>
+            <div
+              style={{ width: `${surveyScore.length * 5}%` }}
+              className='shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-sky-500'></div>
+          </div>
+        </div>
+        <div className='mt-14 flex mx-36 items-center'>
           <img src={robo} alt='robo-image' className='' />
           <div className='ml-10'>
             <div className='font-poppins font-bold text-2xl'>
@@ -79,8 +86,9 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
             if (res === -1) setSurveyScore([...surveyScore, 0]);
             else setSurveyScore([...surveyScore, Data[surveyScore.length + 1].score[res]]);
             if (surveyScore.length === 19) {
+              localStorage.setItem('step', 2);
               localStorage.setItem('survey', 'true');
-              navigate('/result');
+              navigate('/getting-started');
             } else {
               setRes(-1);
             }
