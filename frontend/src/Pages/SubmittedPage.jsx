@@ -1,14 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { NavBar } from '../Components/Navbar';
-import { Loader } from '../Components/Loader';
-import { SpecialistPage } from './SpecialistPage';
+import React, { useEffect, useState } from "react";
+import { NavBar } from "../Components/Navbar";
+import { Loader } from "../Components/Loader";
+import { SpecialistPage } from "./SpecialistPage";
 
 export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
-  const [res, setRes] = useState('Res');
+  const [res, setRes] = useState("Res");
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
-    const language = (score[0] + score[1] + score[2] + score[3] + score[4] + score[5] + score[7]) / 7;
+    const language =
+      (score[0] +
+        score[1] +
+        score[2] +
+        score[3] +
+        score[4] +
+        score[5] +
+        score[7]) /
+      7;
     const memory = (score[1] + score[8]) / 2;
     const speed = 0.4;
     const visual = (score[0] + score[2] + score[3] + score[6]) / 4;
@@ -20,18 +28,18 @@ export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
       speed,
       visual,
       audio,
-      survey
+      survey,
     };
     console.log(data);
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:8000/scroes/result', {
-          method: 'POST',
+        const response = await fetch("http://localhost:8000/scores/result", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(data)
+          body: JSON.stringify(data),
         });
         setScore([]);
         setSurveyScore([]);
@@ -51,14 +59,14 @@ export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
       <NavBar />
       <Loader show={loading} />
       {loading ? null : (
-        <div className='mt-5 flex justify-center items-center'>
-          <div className='flex flex-col justify-center items-center'>
-            <div className='font-poppins font-bold text-4xl'>Your Result</div>
-            <div className='text-xl'>{res}</div>
+        <div className="mt-5 flex justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
+            <div className="font-poppins font-bold text-4xl">Your Result</div>
+            <div className="text-xl">{res}</div>
           </div>
         </div>
       )}
-      <SpecialistPage result='true' resultQuiz='' />
+      <SpecialistPage result="true" resultQuiz="" />
     </>
   );
 };
