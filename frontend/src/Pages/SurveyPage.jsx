@@ -18,35 +18,43 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
   return (
     <>
       <NavBar />
-      <div className='mt-20'>
-        <div className='flex mx-36 items-center'>
-          <img src={robo} alt='robo-image' className='' />
-          <div className='ml-10'>
-            <div className='font-poppins font-bold text-2xl'>
+      <div className="mt-10">
+        <div className="relative pt-1 ">
+          <div className="overflow-hidden h-2 mb-4 text-xs flex rounded bg-sky-100">
+            <div
+              style={{ width: `${surveyScore.length * 5}%` }}
+              className="shadow-none flex flex-col text-center whitespace-nowrap text-white justify-center bg-sky-500"
+            ></div>
+          </div>
+        </div>
+        <div className="mt-14 flex mx-36 items-center">
+          <img src={robo} alt="robo-image" className="" />
+          <div className="ml-10">
+            <div className="font-poppins font-bold text-2xl">
               <img
                 src={speaker}
-                alt='speaker-image'
-                className='w-6 h-6 mr-3 cursor-pointer inline-block'
+                alt="speaker-image"
+                className="w-6 h-6 mr-3 cursor-pointer inline-block"
                 onClick={() =>
                   speak({
                     text:
                       'voice' in Data[surveyScore.length + 1]
                         ? Data[surveyScore.length + 1].voice
-                        : Data[surveyScore.length + 1].question
+                        : Data[surveyScore.length + 1].question,
                   })
                 }
               />
               {Data[surveyScore.length + 1].question}
             </div>
-            <div className='flex justify-center items-center mt-5'>
+            <div className="flex justify-center items-center mt-5">
               {/* <div className='border border-qBor rounded py-1 px-2 text-lg'>“B”</div> */}
               {'images' in Data[surveyScore.length + 1]
                 ? Data[surveyScore.length + 1].images.map((img, index) => {
                     return (
                       <img
                         src={require(`../Images/Quiz1/${img}`)}
-                        className='border border-qBor rounded py-1 px-2 w-52 h-52 mx-8'
-                        alt='letter B'
+                        className="border border-qBor rounded py-1 px-2 w-52 h-52 mx-8"
+                        alt="letter B"
                       />
                     );
                   })
@@ -54,10 +62,10 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
             </div>
           </div>
         </div>
-        <div className='flex my-14 mx-36 justify-center'>
+        <div className="flex my-14 mx-36 justify-center">
           {Data[surveyScore.length + 1].options.map((opt, index) => {
             return (
-              <div key={index} className='mr-20'>
+              <div key={index} className="mr-20">
                 <button
                   className={`${
                     res == index ? 'bg-blue-200' : 'bg-optBg'
@@ -66,7 +74,8 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
                   py-3 hover:shadow-lg`}
                   onClick={() => {
                     setRes(index);
-                  }}>
+                  }}
+                >
                   {opt}
                 </button>
               </div>
@@ -74,17 +83,22 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
           })}
         </div>
         <div
-          className='flex justify-center'
+          className="flex justify-center"
           onClick={() => {
-            setSurveyScore([...surveyScore, Data[surveyScore.length + 1].score[res]]);
+            setSurveyScore([
+              ...surveyScore,
+              Data[surveyScore.length + 1].score[res],
+            ]);
             if (surveyScore.length === 19) {
+              localStorage.setItem('step', 2);
               localStorage.setItem('survey', 'true');
-              navigate('/result');
+              navigate('/getting-started');
             } else {
               setRes(-1);
             }
-          }}>
-          <Button content='Continue' />
+          }}
+        >
+          <Button content="Continue" />
         </div>
       </div>
     </>

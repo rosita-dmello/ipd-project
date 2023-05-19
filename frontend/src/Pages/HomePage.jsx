@@ -15,10 +15,14 @@ export const Home = () => {
             Predict Risk of Dyslexia in your Child
           </div>
           <div className="text-base mt-4 md:mt-8 md:pr-24 md:leading-relaxed">
-            Quiz for Children and Survey for Parents combined generate a prediction if they are at a risk for Dyslexia.
+            Quiz for Children and Survey for Parents combined generate a
+            prediction if they are at a risk for Dyslexia.
           </div>
           <Link to="getting-started">
-            <button className="my-10 px-3 py-2 border font-poppins border-neutral-500 md:text-xl rounded hover:bg-neutral-100 hover:shadow hover:border-neutral-600">
+            <button
+              onClick={() => localStorage.setItem('step', 0)}
+              className="my-10 px-3 py-2 border font-poppins border-neutral-500 md:text-xl rounded hover:bg-neutral-100 hover:shadow hover:border-neutral-600"
+            >
               Getting Started
             </button>
           </Link>
