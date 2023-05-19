@@ -100,7 +100,7 @@ export const HandwrittingPage = ({ files, setFiles, newFile, setNewFile }) => {
               onClick={() => {
                 localStorage.setItem('quiz', 'false');
                 localStorage.setItem('survey', 'false');
-                navigate('/handwriting-result');
+                navigate('/result');
               }}>
               <Button content='Submit' />
             </div>
