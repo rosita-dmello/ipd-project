@@ -8,6 +8,7 @@ import { Loader } from '../Components/Loader';
 
 const ResultPage = ({ score, surveyScore, setScore, setSurveyScore, files, setFiles }) => {
   const [res, setRes] = useState('Res');
+  const [scores, setScores] = useState({});
 
   const [handRes, setHandRes] = useState({
     message: 'Res',
@@ -17,9 +18,13 @@ const ResultPage = ({ score, surveyScore, setScore, setSurveyScore, files, setFi
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    // calculate the percentage values for each
+
     const language =
       (score[0] + score[1] + score[2] + score[3] + score[4] + score[5] + score[7]) / 7;
+
     const memory = (score[1] + score[8]) / 2;
+
     const speed = 0.4;
     const visual = (score[0] + score[2] + score[3] + score[6]) / 4;
     const audio = (score[6] + score[9]) / 2;
@@ -32,6 +37,8 @@ const ResultPage = ({ score, surveyScore, setScore, setSurveyScore, files, setFi
       audio,
       survey
     };
+    setScores(data);
+
     console.log(data);
     console.log(files);
 
@@ -88,12 +95,13 @@ const ResultPage = ({ score, surveyScore, setScore, setSurveyScore, files, setFi
         {/* <div className='text-xl'>You are a Visual Learner</div> */}
       </div>
       <Loader show={loading} />
+      <BarChart scores={scores} />
 
       {loading ? null : (
         <>
           <div className='grid lg:grid-cols-8 gap-4 px-6'>
             <div className='col-span-4 bg-white rounded-lg shadow-lg p-2 my-2'>
-              <BarChart />
+              <BarChart scores={scores} />
             </div>
             <div className='col-span-2 p-2'>
               <ReportPercentage percentage={70} title='Quiz Result' />

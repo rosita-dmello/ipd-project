@@ -12,13 +12,20 @@ import { Bar } from 'react-chartjs-2';
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const BarChart = () => {
+const BarChart = ({ scores }) => {
   const data = {
     labels: ['Language', 'Memory', 'Speed', 'Visual', 'Audio', 'Survey'],
     datasets: [
       {
         label: 'Percentage',
-        data: [80, 65, 90, 75, 70, 85],
+        data: [
+          scores.language * 100,
+          scores.memory * 100,
+          scores.speed * 100,
+          scores.visual * 100,
+          scores.audio * 100,
+          scores.survey * 100
+        ],
         backgroundColor: [
           'rgba(75,192,192,0.4)',
           'rgba(54, 162, 235, 0.4)',
