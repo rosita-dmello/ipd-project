@@ -79,7 +79,7 @@ export const Survey = ({ surveyScore, setSurveyScore }) => {
             if (res === -1) setSurveyScore([...surveyScore, 0]);
             else setSurveyScore([...surveyScore, Data[surveyScore.length + 1].score[res]]);
             if (surveyScore.length === 19) {
-              localStorage.setItem('quiz', 'false');
+              localStorage.setItem('survey', 'true');
               navigate('/result');
             } else {
               setRes(-1);

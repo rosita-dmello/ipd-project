@@ -3,39 +3,29 @@ import { NavBar } from '../Components/Navbar';
 import { Loader } from '../Components/Loader';
 import { SpecialistPage } from './SpecialistPage';
 
-export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
+export const HandwritingResult = ({ files, setFiles }) => {
   const [res, setRes] = useState('Res');
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     window.scrollTo(0, 0);
-    const language = (score[0] + score[1] + score[2] + score[3] + score[4] + score[5] + score[7]) / 7;
-    const memory = (score[1] + score[8]) / 2;
-    const speed = 0.4;
-    const visual = (score[0] + score[2] + score[3] + score[6]) / 4;
-    const audio = (score[6] + score[9]) / 2;
-    const survey = surveyScore.reduce((a, b) => a + b, 0) / 80;
-    const data = {
-      language,
-      memory,
-      speed,
-      visual,
-      audio,
-      survey
-    };
-    console.log(data);
+    console.log(files);
+
     const fetchData = async () => {
       try {
         setLoading(true);
-        const response = await fetch('http://localhost:8000/scroes/result', {
+        const formData = new FormData();
+        formData.append('file', files[0].originalFile.file);
+
+        const response = await fetch('http://localhost:8000/handwriting/result', {
           method: 'POST',
+          // ! Remove this line if not working
           headers: {
-            'Content-Type': 'application/json'
+            'content-type': 'multipart/form-data; boundary=---011000010111000001101001'
           },
-          body: JSON.stringify(data)
+          body: formData
         });
-        setScore([]);
-        setSurveyScore([]);
         const resData = await response.json();
+        setFiles([]);
         console.log(resData);
         setRes(resData);
         setLoading(false);
@@ -54,11 +44,12 @@ export const Result = ({ score, surveyScore, setScore, setSurveyScore }) => {
         <div className='mt-5 flex justify-center items-center'>
           <div className='flex flex-col justify-center items-center'>
             <div className='font-poppins font-bold text-4xl'>Your Result</div>
-            <div className='text-xl'>{res}</div>
+            <div className='text-xl'>{res.message && res.message}</div>
+            <div className='text-xl'>{res.probability && res.probability}</div>
           </div>
         </div>
       )}
-      <SpecialistPage result='true' resultQuiz='' />
+      <SpecialistPage result='true' resultHandwritten={res.probability || 1} />
     </>
   );
 };

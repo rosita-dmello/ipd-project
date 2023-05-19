@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '../Components/Button';
 import { NavBar } from '../Components/Navbar';
 import { OptionBtn } from '../Components/OptionBtn';
@@ -13,8 +13,20 @@ import { Navigate, useNavigate } from 'react-router-dom';
 export const QuizPage = ({ score, setScore }) => {
   const { speak } = useSpeechSynthesis();
   const [res, setRes] = useState(-1);
+  const [count, setCount] = useState(0);
   console.log('images' in Object.keys(Data[score.length + 1]));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCount((count) => count + 1);
+    }, 1000);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, []);
+
   return (
     <>
       <NavBar />
@@ -30,9 +42,7 @@ export const QuizPage = ({ score, setScore }) => {
                 onClick={() =>
                   speak({
                     text:
-                      'voice' in Data[score.length + 1]
-                        ? Data[score.length + 1].voice
-                        : Data[score.length + 1].question
+                      'voice' in Data[score.length + 1] ? Data[score.length + 1].voice : Data[score.length + 1].question
                   })
                 }
               />
@@ -54,14 +64,15 @@ export const QuizPage = ({ score, setScore }) => {
             </div>
           </div>
           <div className='ml-auto'>
-            <CountdownCircleTimer
+            <div className={`border-btn rounded-full border-4 ${count > 9 ? 'px-4 py-3' : 'px-4 py-2'} `}>{count}</div>
+            {/* <CountdownCircleTimer
               isPlaying
-              duration={120}
+              duration={300}
               colors={[' #37C9EF']}
               size={60}
               strokeWidth={5}>
               {({ remainingTime }) => remainingTime}
-            </CountdownCircleTimer>
+            </CountdownCircleTimer> */}
           </div>
         </div>
         <div className='flex my-14 mx-36 justify-center'>
@@ -86,16 +97,14 @@ export const QuizPage = ({ score, setScore }) => {
         <div
           className='flex justify-center'
           onClick={() => {
-            setScore([
-              ...score,
-              Data[score.length + 1].options[res] === Data[score.length + 1].answer ? 1 : 0
-            ]);
+            setScore([...score, Data[score.length + 1].options[res] === Data[score.length + 1].answer ? 1 : 0]);
             if (score.length === 9) {
               localStorage.setItem('quiz', 'true');
               navigate('/getting-started');
             } else {
               setRes(-1);
             }
+            setCount(0);
           }}>
           <Button content='Continue' />
         </div>
