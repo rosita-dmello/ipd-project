@@ -1,21 +1,21 @@
-import { Route, Routes } from 'react-router-dom';
-import { Home } from './Pages/HomePage';
-import { QuizPage } from './Pages/QuizPage';
-import { StartPage } from './Pages/StartPage';
-import { Survey } from './Pages/SurveyPage';
-import { useState } from 'react';
-import { Result } from './Pages/SubmittedPage';
-import { SpecialistPage } from './Pages/SpecialistPage';
-import { SignUp } from './Pages/SignupPage';
-import { Login } from './Pages/LoginPage';
-import { HandwrittingPage } from './Pages/HandwrittingPage';
-import { HandwritingResult } from './Pages/HandwritingSubmittedPage';
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./Pages/HomePage";
+import { QuizPage } from "./Pages/QuizPage";
+import { StartPage } from "./Pages/StartPage";
+import { Survey } from "./Pages/SurveyPage";
+import { useState } from "react";
+import { Result } from "./Pages/SubmittedPage";
+import { SpecialistPage } from "./Pages/SpecialistPage";
+import { SignUp } from "./Pages/SignupPage";
+import { Login } from "./Pages/LoginPage";
+import { HandwrittingPage } from "./Pages/HandwrittingPage";
+import { HandwritingResult } from "./Pages/HandwritingSubmittedPage";
 
 export default function App() {
   const [score, setScore] = useState([]);
   const [surveyScore, setSurveyScore] = useState([]);
   const [files, setFiles] = useState([]);
-
+  const [newFile, setNewFile] = useState("");
   return (
     <Routes>
       <Route path="/" element={<Home />} />
@@ -46,11 +46,25 @@ export default function App() {
       <Route path="/login" element={<Login />} />
       <Route
         path="/handwritten"
-        element={<HandwrittingPage files={files} setFiles={setFiles} />}
+        element={
+          <HandwrittingPage
+            files={files}
+            setFiles={setFiles}
+            newFile={newFile}
+            setNewFile={setNewFile}
+          />
+        }
       />
       <Route
         path="/handwriting-result"
-        element={<HandwritingResult files={files} setFiles={setFiles} />}
+        element={
+          <HandwritingResult
+            files={files}
+            setFiles={setFiles}
+            newFile={newFile}
+            setNewFile={setNewFile}
+          />
+        }
       />
       <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>
