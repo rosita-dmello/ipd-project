@@ -1,16 +1,16 @@
-import { Route, Routes } from 'react-router-dom';
-import { Home } from './Pages/HomePage';
-import { QuizPage } from './Pages/QuizPage';
-import { StartPage } from './Pages/StartPage';
-import { Survey } from './Pages/SurveyPage';
-import { useState } from 'react';
-import { Result } from './Pages/SubmittedPage';
-import { SpecialistPage } from './Pages/SpecialistPage';
-import { SignUp } from './Pages/SignupPage';
-import { Login } from './Pages/LoginPage';
-import { HandwrittingPage } from './Pages/HandwrittingPage';
-import { HandwritingResult } from './Pages/HandwritingSubmittedPage';
-import ResultPage from './Pages/ResultPage';
+import { Route, Routes } from "react-router-dom";
+import { Home } from "./Pages/HomePage";
+import { QuizPage } from "./Pages/QuizPage";
+import { StartPage } from "./Pages/StartPage";
+import { Survey } from "./Pages/SurveyPage";
+import { useState } from "react";
+import { Result } from "./Pages/SubmittedPage";
+import { SpecialistPage } from "./Pages/SpecialistPage";
+import { SignUp } from "./Pages/SignupPage";
+import { Login } from "./Pages/LoginPage";
+import { HandwrittingPage } from "./Pages/HandwrittingPage";
+import { HandwritingResult } from "./Pages/HandwritingSubmittedPage";
+import ResultPage from "./Pages/ResultPage";
 
 export default function App() {
   const [score, setScore] = useState([]);
@@ -19,15 +19,20 @@ export default function App() {
   const [newFile, setNewFile] = useState("");
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/getting-started' element={<StartPage />} />
-      <Route path='/quiz' element={<QuizPage score={score} setScore={setScore} />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/getting-started" element={<StartPage />} />
       <Route
-        path='/survey'
-        element={<Survey surveyScore={surveyScore} setSurveyScore={setSurveyScore} />}
+        path="/quiz"
+        element={<QuizPage score={score} setScore={setScore} />}
       />
       <Route
-        path='/result'
+        path="/survey"
+        element={
+          <Survey surveyScore={surveyScore} setSurveyScore={setSurveyScore} />
+        }
+      />
+      <Route
+        path="/result"
         element={
           <ResultPage
             score={score}
@@ -36,22 +41,38 @@ export default function App() {
             setSurveyScore={setSurveyScore}
             files={files}
             setFiles={setFiles}
+            newFile={newFile}
+            setNewFile={setNewFile}
           />
         }
         // element={<Result score={score} setScore={setScore} surveyScore={surveyScore} setSurveyScore={setSurveyScore} />}
       />
-      <Route path='/specialist' element={<SpecialistPage />} />
-      <Route path='/signup' element={<SignUp />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/handwritten' element={<HandwrittingPage files={files} setFiles={setFiles}
-            newFile={newFile}
-            setNewFile={setNewFile} />} />
+      <Route path="/specialist" element={<SpecialistPage />} />
+      <Route path="/signup" element={<SignUp />} />
+      <Route path="/login" element={<Login />} />
       <Route
-        path='/handwriting-result'
-        element={<HandwritingResult files={files} setFiles={setFiles} newFile={newFile}
-        setNewFile={setNewFile} />}
+        path="/handwritten"
+        element={
+          <HandwrittingPage
+            files={files}
+            setFiles={setFiles}
+            newFile={newFile}
+            setNewFile={setNewFile}
+          />
+        }
       />
-      <Route path='*' element={<div>404 Not Found</div>} />
+      <Route
+        path="/handwriting-result"
+        element={
+          <HandwritingResult
+            files={files}
+            setFiles={setFiles}
+            newFile={newFile}
+            setNewFile={setNewFile}
+          />
+        }
+      />
+      <Route path="*" element={<div>404 Not Found</div>} />
     </Routes>
   );
 }
